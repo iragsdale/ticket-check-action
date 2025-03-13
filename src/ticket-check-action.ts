@@ -262,7 +262,7 @@ export async function run(): Promise<void> {
 
     if (!bodyURLRegexBase) {
       debug('failure', 'Title, branch, and body do not contain a reference to a ticket, and no body URL regex was set');
-      setFailed('No ticket was referenced in this pull request');
+      debug('ignored', 'No ticket was referenced in this pull request');
 
       return;
     }
@@ -323,7 +323,7 @@ export async function run(): Promise<void> {
 
     if (titleCheck === null && branchCheck === null && bodyCheck === null && bodyURLCheck === null) {
       debug('failure', 'Title, branch, and body do not contain a reference to a ticket');
-      setFailed('No ticket was referenced in this pull request');
+      debug('ignored', 'No ticket was referenced in this pull request');
 
       return;
     }
